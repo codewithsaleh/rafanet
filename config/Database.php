@@ -4,8 +4,8 @@ class Database {
     // Properti di-set private (Enkapsulasi) agar hanya bisa diakses dari dalam class ini
     private $host = "localhost";
     private $db_name = "aitfdgkg_miniwifi"; // GANTI dengan nama database di Laragon
-    private $username = "root"; // Default username Laragon
-    private $password = "";     // Default password Laragon kosong
+    private $username = "aitfdgkg_themaster"; // Default username Laragon
+    private $password = "Lupasandi777#";     // Default password Laragon kosong
     public $conn;
 
     // Method untuk mendapatkan koneksi database
