@@ -165,7 +165,7 @@ while ($row_client = $stmt_clients->fetch(PDO::FETCH_ASSOC)) {
                                     
                                     <td class="p-4">
                                         <p class="text-neon font-mono text-sm"><?= htmlspecialchars($row['ip_address']); ?></p>
-                                        <p class="text-xs text-slate-400 mt-1">BW: <span class="text-white font-medium"><?= htmlspecialchars($row['bandwidth'] ?: '-'); ?></span></p>
+                                        <p class="text-xs text-slate-400 mt-1">Bandwidth: <span class="text-white font-medium"><?= htmlspecialchars($row['bandwidth'] ?: '-'); ?></span> Mbps</p>
                                     </td>
                                     
                                     <td class="p-4">
