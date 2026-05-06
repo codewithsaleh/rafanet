@@ -64,6 +64,7 @@ if(isset($_GET['delete_id'])) {
 $stmt = $asset->read();
 $all_assets = [];
 $total_aset_harga = 0;
+$aset_termahal_merek = '-';
 $aset_termahal_nama = '-';
 $aset_termahal_harga = 0;
 $aset_terbaru_nama = 'Belum ada data';
@@ -82,12 +83,14 @@ if($stmt->rowCount() > 0) {
     foreach($all_assets as $item) {
         // Ambil nilai dengan pengaman (fallback)
         $harga = $item['harga'] ?? 0;
+        $merek = $item['merek'] ?? 'Tanpa Merk';
         $nama = $item['nama'] ?? 'Tanpa Nama';
 
         $total_aset_harga += $harga;
         
         if($harga > $aset_termahal_harga) {
             $aset_termahal_harga = $harga;
+            $aset_termahal_merek = htmlspecialchars($merek);
             $aset_termahal_nama = htmlspecialchars($nama);
         }
     }
@@ -147,7 +150,7 @@ if($stmt->rowCount() > 0) {
                 </div>
                 <div>
                     <h3 class="text-slate-400 text-xs uppercase tracking-wider mb-1">Aset Termahal</h3>
-                    <p class="text-lg font-bold text-white truncate max-w-[150px]"><?= $aset_termahal_nama; ?></p>
+                    <p class="text-lg font-bold text-white truncate max-w-[150px]"><?= $aset_termahal_merek . ' ' .$aset_termahal_nama; ?></p>
                     <p class="text-xs text-purple-400">Rp <?= number_format($aset_termahal_harga, 0, ',', '.'); ?></p>
                 </div>
             </div>
